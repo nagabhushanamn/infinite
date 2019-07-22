@@ -60,7 +60,8 @@ Topics
 Level-1
 
 - data types
-- scope / execution context
+- literal-style objects
+- scope / execution-context
 - FP 
 - OOP
 - 'this' keyword
