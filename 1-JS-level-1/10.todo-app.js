@@ -20,7 +20,18 @@ class TodoService {
         this.todos = this.todos.concat(newTodo) // immutable
     }
     editTodo(id, newTitle) {
-
+        // a.immutable
+        // this.todos = this.todos.map(function (item) {
+        //     if (item.id === id)
+        //         item.title = newTitle
+        //     return item;
+        // })
+        // b. mutable
+        let idx = this.todos.findIndex(function (item) {
+            return item.id === id;
+        })
+        let item = this.todos[idx]
+        item.title = newTitle
     }
     deleteTodo(id) {
         // a.immutable
@@ -34,13 +45,44 @@ class TodoService {
         this.todos.splice(idx, 1)
     }
     completeTodo(id) {
-
+        // a.immutable
+        // this.todos = this.todos.map(function (item) {
+        //     if (item.id === id)
+        //         item.completed = !item.completed
+        //     return item;
+        // })
+        // b. mutable
+        let idx = this.todos.findIndex(function (item) {
+            return item.id === id;
+        })
+        let item = this.todos[idx]
+        item.completed = !item.completed
     }
     completeAll() {
-
+        let areAllCompleted = this.todos.every(function (item) {
+            return item.completed;
+        })
+        // a.immutable
+        // this.todos = this.todos.map(function (item) {
+        //     item.completed = !areAllCompleted
+        //     return item;
+        // })
+        // b. mutable
+        this.todos.forEach(function (item) {
+            item.completed = !areAllCompleted
+        })
     }
     clearCompleted() {
-
+        // a.immutable
+        // this.todos = this.todos.filter(function (item) {
+        //     return !item.completed
+        // })
+        // mutable
+        let self = this;
+        this.todos.forEach(function (item) {
+            if (item.completed)
+                self.deleteTodo(item.id)
+        })
     }
     viewTodos(filterBy) {
         if (filterBy === "ALL")
