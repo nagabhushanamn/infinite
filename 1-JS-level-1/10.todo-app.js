@@ -16,13 +16,22 @@ class TodoService {
     }
     addTodo(title) {
         let newTodo = new Todo(title)
-        this.todos = this.todos.concat(newTodo)
+        // this.todos.push(newTodo) // mutate
+        this.todos = this.todos.concat(newTodo) // immutable
     }
     editTodo(id, newTitle) {
 
     }
     deleteTodo(id) {
-
+        // a.immutable
+        // this.todos = this.todos.filter(function (item) {
+        //     return item.id !== id
+        // })
+        // b.mutable
+        let idx = this.todos.findIndex(function (item) {
+            return item.id === id;
+        })
+        this.todos.splice(idx, 1)
     }
     completeTodo(id) {
 
@@ -33,8 +42,11 @@ class TodoService {
     clearCompleted() {
 
     }
-    viewTodos(filter) {
-
+    viewTodos(filterBy) {
+        if (filterBy === "ALL")
+            this.todos.forEach(function (item) {
+                console.log(item)
+            })
     }
 
 }
