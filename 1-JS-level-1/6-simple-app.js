@@ -7,8 +7,9 @@ function Trainer(name) {
 Trainer.prototype.doTeach = function (sub) {
     console.log(this.name + " teaching " + sub)
     let notes = sub + "-notes"
+    let tnrName = this.name;
     let doLearn = function () {
-        console.log(this.name + " learning with " + notes +" from the Trainer - "+???)
+        console.log(this.name + " learning with " + notes + " from the Trainer - " + tnrName )
     }
     console.log("teaching ends")
     return doLearn
