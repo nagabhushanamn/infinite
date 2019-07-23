@@ -129,7 +129,7 @@ function func2(a, b, ...rest) {
 
 /**
  *  #1 : function is a value/object i.e first-class citizen
- *       i.e we can assign to variable directly
+ *       i.e we can assign function to any variable directly
  */
 
 // function greet() {
@@ -139,12 +139,13 @@ function func2(a, b, ...rest) {
 
 // sayHello();
 
+//-----------------------------------------------------
+
 /**
  *
  * #2 : paratemer of function can be other function
  *
  */
-
 
 function greet(f) {
     console.log("========================")
@@ -169,7 +170,7 @@ let asc = function (x, y) { return x - y }
 nums.sort(asc);
 // console.log(nums)
 
-
+//--------------------------------------------------
 
 /**
  *
@@ -189,4 +190,56 @@ function teach(sub) {
 // lernFunc()
 // lernFunc()
 // lernFunc();
+
+
+//----------------------------------------------------
+
+// Function closure
+// -----------------
+
+/**
+ * 
+ * A closure is a function having access 
+ * to the parent scope, 
+ * even after the parent function has closed.
+ * 
+ */
+
+function teach(sub) {
+    console.log(`teaching ${sub}`)
+    let notes = `${sub}-notes` // stack  ==> heap
+    let fun = "bla bla bla" // stack
+    function learn() {
+        console.log(`learning with ${notes}`)
+    }
+    // learn()
+    console.log("teaching ends..")
+    return learn;
+}
+
+// let learnFunc = teach('javascript') // teach-scope 
+// learnFunc();
+
+
+// Ex1  : counter-module
+
+// to abstract public behav of any modules
+
+// module-design-pattern ==> self executable function / IIFE
+(function () {
+    console.log("init...")
+    let count = 0;  // private 
+    // public
+    function pri() { }
+    function inc() {
+        count += 1
+    }
+    function get() {
+        return count;
+    }
+    window.$ = {
+        inc: inc,
+        get: get
+    }
+})()
 
