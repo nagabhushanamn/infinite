@@ -2,11 +2,14 @@
 
 var myFunctions = []
 //----------------------------------------
-for (var i = 0; i < 2; i++) {
+function getF(i) {
     var func = function () {
         console.log(i)
     }
-    myFunctions.push(func)
+    return func;
+}
+for (var i = 0; i < 200; i++) {
+    myFunctions.push(getF(i))
 }
 //----------------------------------------
 myFunctions[0]()
