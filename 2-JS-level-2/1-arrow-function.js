@@ -1,6 +1,8 @@
 "use strict"
 
 
+// ES6
+
 // let getPrice = function () {
 //     return 100 + 200
 // }
