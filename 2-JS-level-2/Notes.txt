@@ -1,6 +1,10 @@
 
 
 
-//
+
 
 1. arrow functions 
+2. obj-literal enhanacements
+3. de-structuring
+4. spread operator
+5. iterable objects & for-of loop

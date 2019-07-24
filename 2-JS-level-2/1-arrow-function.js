@@ -183,3 +183,14 @@ let inv = {
 
 // let newInv = { num: 9999 }
 // complete.call(newInv)
+
+
+
+
+let person={
+    name:'Nag',
+    saName:()=>{
+        console.log("im "+this.name)
+    }
+}
+person.saName();
