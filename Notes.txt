@@ -2,6 +2,15 @@
 
 
 http://crockford.com/javascript/
+https://developer.mozilla.org/en-US/docs/Web/JavaScript
+https://exploringjs.com/es6/index.html
+http://javascript.info/
+
+
+
+http://latentflip.com/loupe/
+
+
 
 -------------------------------------------------------
 why javascript ?
