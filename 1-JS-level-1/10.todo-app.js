@@ -78,10 +78,9 @@ class TodoService {
         //     return !item.completed
         // })
         // mutable
-        let self = this;
-        this.todos.forEach(function (item) {
+        this.todos.forEach((item) => {
             if (item.completed)
-                self.deleteTodo(item.id)
+                this.deleteTodo(item.id)
         })
     }
     viewTodos(filterBy) {
