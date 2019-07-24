@@ -49,3 +49,40 @@ NPM ( node package manager )
  why we need ?
 
     => to publish/install javascript packages from NPM repository
+
+
+
+-----------------------------------------------------   
+Tools : Module bundler/loaders
+-----------------------------------------------------  
+
+why we need ?
+
+    ==> transpile / compile  --> babel
+    ==> linting              --> ESLint 
+   
+    webpack
+    ==> bundling 
+    ==> minification         --> uglify plugin
+
+
+how to acheive ?
+
+    ==> using webpack + babel + ESLint
+
+-----------------------------------------------------   
+from ECMACScript spec
+-----------------------------------------------------  
+
+
+ES modules
+
+
+=> every .js file is module by default
+=> any var(s) /function(s) in .js file  are 'private' by default
+=> to abstract/export any member(s), use 'export' keyword
+=> to require/import any module , use 'import' keyword
+=> group replated modules into package with description file 'package.json'
+
+
+
