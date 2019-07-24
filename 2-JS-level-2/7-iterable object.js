@@ -13,10 +13,10 @@ for (let item of menu) {
 //
 
 let myList = {
-    [Symbol.iterator]: function () {
+    [Symbol.iterator]() {
         let n = 0;
         return {
-            next: function () {
+            next() {
                 n++;
                 let value = n <= 10 ? n : undefined
                 let done = n > 10 ? true : false
