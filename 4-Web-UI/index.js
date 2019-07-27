@@ -53,11 +53,26 @@ stopBtn.addEventListener('click', e => {
 // using DOM + XHR API
 //-----------------------------------------------
 
-let apiUrl = 'https://jsonplaceholder.typicode.com/todos?_limit=200';
 
 let todosBtn = document.getElementById('todos-btn');
+let selectCountEle = document.getElementById("selectCountEle")
+let inpCountEle = document.getElementById("inpCountEle")
 todosBtn.addEventListener('click', e => {
+    loadTodos(5)
+})
+selectCountEle.addEventListener('change', e => {
+    loadTodos(e.target.value)
+    inpCountEle.value = e.target.value
+})
+inpCountEle.addEventListener('change', e => {
+    loadTodos(e.target.value)
+    selectCountEle.value = e.target.value
+})
+
+
+function loadTodos(limit) {
     let xhr = new XMLHttpRequest();
+    let apiUrl = `https://jsonplaceholder.typicode.com/todos?_limit=${limit}`;
     xhr.open('GET', apiUrl)
     xhr.send()
     xhr.onreadystatechange = function () {
@@ -76,4 +91,4 @@ todosBtn.addEventListener('click', e => {
             document.getElementById('todos').innerHTML = liElems.join(" ")
         }
     }
-})
+}
