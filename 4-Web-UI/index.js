@@ -25,14 +25,55 @@ nextBtn.addEventListener('click', e => {
 // using DOM + Timer API
 // ----------------------------------------
 let pandaEle = document.getElementById('pandaEle');
-let idx = 1;
-let interval = setInterval(() => {
-    let imgPath = `images/${idx}.jpeg`
-    if (idx !== 2)
-        pandaEle.src = imgPath
-    idx++;
-    if (idx > 5)
-        idx = 1;
-}, 1000);
+let startBtn = document.getElementById('startBtn')
+let stopBtn = document.getElementById('stopBtn')
+stopBtn.disabled = true
+let interval;
+startBtn.addEventListener('click', e => {
+    stopBtn.disabled = false
+    startBtn.disabled = true;
+    let idx = 1;
+    interval = setInterval(() => {
+        let imgPath = `images/${idx}.jpeg`
+        if (idx !== 2)
+            pandaEle.src = imgPath
+        idx++;
+        if (idx > 5)
+            idx = 1;
+    }, 1000);
+})
+stopBtn.addEventListener('click', e => {
+    stopBtn.disabled = true
+    startBtn.disabled = false;
+    clearInterval(interval)
+})
 
-clearInterval(interval)
+
+//-----------------------------------------------
+// using DOM + XHR API
+//-----------------------------------------------
+
+let apiUrl = 'https://jsonplaceholder.typicode.com/todos?_limit=200';
+
+let todosBtn = document.getElementById('todos-btn');
+todosBtn.addEventListener('click', e => {
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', apiUrl)
+    xhr.send()
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            let json = xhr.responseText;
+            let todos = JSON.parse(json)
+            let liElems = todos.map((todo, idx) => {
+                return `
+                    <li class="list-group-item">
+                        <span class="badge badge-dark">${todo.id}</span>
+                        <span>${todo.title}</span>
+                        <span class="badge ${todo.completed ? 'badge-success' : 'badge-danger'}">${todo.completed}</span>
+                    </li>
+                `
+            })
+            document.getElementById('todos').innerHTML = liElems.join(" ")
+        }
+    }
+})
