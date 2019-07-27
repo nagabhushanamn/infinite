@@ -49,6 +49,9 @@ using Timer api
 => to execute some action(s) on timeout/interval
 
 
+HTML5 New APIs 
+----------------
+https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
 
 
  
