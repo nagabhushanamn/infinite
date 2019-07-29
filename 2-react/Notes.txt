@@ -155,3 +155,24 @@ without having to pass props down manually at every level.
 ----------------------------------------
 - higher order components
 ----------------------------------------    
+
+    - pattern to re-use common logic
+
+
+---------------------------------------
+
+
+----------------------------------------------------
+case-study : eat-IT
+----------------------------------------------------
+
+    - loadItems
+    - loadReviews
+    - buy
+    - checkout
+    - view orders & status
+    - submit-new-review
+    - login / logout
+
+----------------------------------------------------    
+
