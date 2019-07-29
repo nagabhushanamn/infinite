@@ -4,13 +4,18 @@ import React, { Component } from 'react';
 
 class CartView extends Component {
     renderCartItems(cart) {
-        return cart.map((item, idx) => {
+        this.total = 0;
+        let keys = Object.keys(cart);
+        return keys.map((key, idx) => {
+            let itemLine = cart[key];
+            let { item, qty } = itemLine;
+            this.total = this.total + (item.price * qty)
             return (
                 <tr key={idx}>
                     <td>{item.name}</td>
                     <td>&#8377;{item.price}</td>
-                    <td>qty</td>
-                    <td>total</td>
+                    <td>{qty}</td>
+                    <td>&#8377;{item.price * qty}</td>
                 </tr>
             )
         })
@@ -27,7 +32,7 @@ class CartView extends Component {
                         </tbody>
                     </table>
                     <hr />
-                    Total : {0}
+                    Total : &#8377;{this.total}
                     <hr />
                 </div>
             </div>

@@ -8,7 +8,7 @@ class CartBadge extends Component {
                 <i className="fa fa-shopping-cart"></i>
                 &nbsp;
                 <span className="badge badge-danger">{value}</span>
-                item(s) in cart
+                &nbsp;item(s) in cart
             </div>
         );
     }

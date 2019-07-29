@@ -50,6 +50,7 @@ class Item extends Component {
                         <h5>{item.name}</h5>
                         <h6>&#8377;{item.price}.00</h6>
                         {this.renderBuyBtn(item)}
+                        &nbsp;<span className="badge badge-danger">{this.props.cartQty}</span>
                         <ul className="nav nav-tabs">
                             <li className="nav-item">
                                 <a onClick={e => this.changeTab(e, 1)} className={`nav-link ${currentTab === 1 ? 'active' : ''}`} href="/">Description</a>
