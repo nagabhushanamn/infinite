@@ -13,8 +13,13 @@ class Item extends Component {
         e.preventDefault();
         this.setState({ currentTab: tabIndex })
     }
+    handleBuy(e) {
+        let { value: item, onBuy } = this.props;
+        if (onBuy)
+            onBuy({ item })
+    }
     renderBuyBtn(item) {
-        if (item.canBuy) return <button className="btn btn-sm btn-dark">buy</button>
+        if (item.canBuy) return <button onClick={e => this.handleBuy()} className="btn btn-sm btn-dark">buy</button>
         else return null;
     }
     renderReviews() {
