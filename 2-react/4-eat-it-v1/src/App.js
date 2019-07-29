@@ -10,6 +10,7 @@ class App extends React.Component {
         name: 'Veg',
         price: 100.00,
         canBuy: true,
+        imgPath: 'images/veg.png',
         description: 'veg is always yummy & healthy'
       },
       {
@@ -17,7 +18,8 @@ class App extends React.Component {
         name: 'Non-Veg',
         price: 90.00,
         canBuy: true,
-        description: 'veg is always yummy & not healthy'
+        imgPath: 'images/non-veg.png',
+        description: 'non-veg is  yummy but not healthy'
       }
     ]
   }
@@ -30,10 +32,17 @@ class App extends React.Component {
     return items.map((item, idx) => {
       return (
         <div key={idx} className="list-group-item">
-          <h5>{item.name}</h5>
-          <h6>&#8377;{item.price}.00</h6>
-          <div>{item.description}</div>
-          {this.renderBuyBtn(item)}
+          <div className="row">
+            <div className="col-3 com-sm-3 col-md-3">
+              <img src={item.imgPath} alt={item.name} className="img-fluid" />
+            </div>
+            <div className="col-9 com-sm-9 col-md-9">
+              <h5>{item.name}</h5>
+              <h6>&#8377;{item.price}.00</h6>
+              <div>{item.description}</div>
+              {this.renderBuyBtn(item)}
+            </div>
+          </div>
         </div>
       )
     })
