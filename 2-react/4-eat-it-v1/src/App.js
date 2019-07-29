@@ -4,6 +4,7 @@ import './App.css';
 
 class App extends React.Component {
   state = {
+    currentTab: 1,
     items: [
       {
         id: 1,
@@ -23,12 +24,25 @@ class App extends React.Component {
       }
     ]
   }
+  changeTab(e, tabIndex) {
+    e.preventDefault();
+    this.setState({ currentTab: tabIndex })
+  }
   renderBuyBtn(item) {
     if (item.canBuy) return <button className="btn btn-sm btn-dark">buy</button>
     else return null;
   }
+  renderTabPanel(item) {
+    let { currentTab } = this.state;
+    switch (currentTab) {
+      case 1: return (<div>{item.description}</div>)
+      case 2: return (<div>{"Not Yet"}</div>)
+      case 3: return (<div>{"None Yet"}</div>)
+      default: return null;
+    }
+  }
   renderItems() {
-    let { items } = this.state;
+    let { items, currentTab } = this.state;
     return items.map((item, idx) => {
       return (
         <div key={idx} className="list-group-item">
@@ -39,8 +53,19 @@ class App extends React.Component {
             <div className="col-9 com-sm-9 col-md-9">
               <h5>{item.name}</h5>
               <h6>&#8377;{item.price}.00</h6>
-              <div>{item.description}</div>
               {this.renderBuyBtn(item)}
+              <ul className="nav nav-tabs">
+                <li className="nav-item">
+                  <a onClick={e => this.changeTab(e, 1)} className={`nav-link ${currentTab === 1 ? 'active' : ''}`} href="/">Description</a>
+                </li>
+                <li className="nav-item">
+                  <a onClick={e => this.changeTab(e, 2)} className={`nav-link ${currentTab === 2 ? 'active' : ''}`} href="/">Ingre..</a>
+                </li>
+                <li className="nav-item">
+                  <a onClick={e => this.changeTab(e, 3)} className={`nav-link ${currentTab === 3 ? 'active' : ''}`} href="/">Reviews</a>
+                </li>
+              </ul>
+              {this.renderTabPanel(item)}
             </div>
           </div>
         </div>
