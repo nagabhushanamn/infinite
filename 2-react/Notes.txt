@@ -128,5 +128,30 @@ e.g
   Step 5: Add Inverse Data Flow          
 
 
+
+
+----------------------------------------
+- context
+----------------------------------------
+
+
+Context provides a way to pass data through the component tree
+without having to pass props down manually at every level.
+
+
+
+----------------------------------------
+- container components
+----------------------------------------
+
     
-    
+    <Container>
+        <A/>
+        <B/>
+    </Container>
+
+
+
+----------------------------------------
+- higher order components
+----------------------------------------    

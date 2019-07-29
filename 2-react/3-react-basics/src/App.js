@@ -1,7 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types'
+import TopicList from './components/TopicList';
+import CommentList from './components/CommentList';
 // import Greeting from './components/Greeting'
-import ActionBox from './components/ActionBox'
+// import ActionBox from './components/ActionBox'
+// import A from './components/A'
+// import MealBox from './components/MealBox'
+// import Veg from './components/Veg'
+// import NonVeg from './components/NonVeg'
 
 class App extends React.Component {
   // state = {}
@@ -41,7 +47,47 @@ class App extends React.Component {
         */}
         {/*-----------------------------------------------------------------------------------------------------------*/}
 
-        <ActionBox />
+        {/* <ActionBox /> */}
+
+        {/*-----------------------------------------------------------------------------------------------------------*/}
+
+        {/* 
+        <A color="red" />
+        <A color="green" />
+        <A color="blue" /> 
+        */}
+
+        {/*-----------------------------------------------------------------------------------------------------------*/}
+
+        {/* 
+        <MealBox>
+          <Veg />
+          <Veg />
+          <Veg />
+        </MealBox>
+        <br />
+        <MealBox>
+          <NonVeg />
+          <NonVeg />
+        </MealBox>
+
+        <MealBox>
+          <Veg />
+          <NonVeg />
+        </MealBox> 
+        */}
+
+        {/*-----------------------------------------------------------------------------------------------------------*/}
+
+        <div className="row">
+          <div className="col-sm-6 col-md-6">
+            <TopicList />
+          </div>
+          <div className="col-sm-6 col-md-6">
+            <CommentList />
+          </div>
+        </div>
+
 
       </div>
     )
