@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+import Review from './Review';
 
 class Item extends Component {
     state = {
         currentTab: 1,
+        reviews: [
+            { author: 'who@mail.com', stars: 5, body: 'sample-review-1' },
+            { author: 'who@mail.com', stars: 1, body: 'sample-review-2' }
+        ]
     }
     changeTab(e, tabIndex) {
         e.preventDefault();
@@ -12,12 +17,18 @@ class Item extends Component {
         if (item.canBuy) return <button className="btn btn-sm btn-dark">buy</button>
         else return null;
     }
+    renderReviews() {
+        let { reviews } = this.state;
+        return reviews.map((review, idx) => {
+            return <Review value={review} key={idx} />
+        })
+    }
     renderTabPanel(item) {
         let { currentTab } = this.state;
         switch (currentTab) {
             case 1: return (<div>{item.description}</div>)
             case 2: return (<div>{"Not Yet"}</div>)
-            case 3: return (<div>{"None Yet"}</div>)
+            case 3: return (<div>{this.renderReviews()}</div>)
             default: return null;
         }
     }
