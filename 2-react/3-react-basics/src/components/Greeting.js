@@ -9,7 +9,7 @@ class Greeting extends Component {
         console.log("Greeting :: render()")
         let { message } = this.props;
         return (
-            <div>
+            <div ref="greetDiv">
                 <div className="alert alert-warning">
                     <p>{message}</p>
                     <hr />
@@ -18,6 +18,28 @@ class Greeting extends Component {
             </div>
         );
     }
+    componentDidMount() {
+        console.log("Greeting :: componentDidMount()")
+        this.refs.greetDiv.addEventListener('mouseover', e => {
+            this.refs.greetDiv.style.cursor = 'pointer'
+        })
+        this.interval = setInterval(() => {
+            this.forceUpdate();
+        }, 1000);
+    }
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log("Greeting :: shouldComponentUpdate()")
+        return this.props.message !== nextProps.message
+    }
+    componentDidUpdate() {
+        console.log("Greeting :: componentDidUpdate()")
+    }
+    componentWillUnmount() {
+        clearInterval(this.interval)
+        console.log("Greeting :: componentWillUnmount()")
+    }
+
+
 }
 
 export default Greeting;

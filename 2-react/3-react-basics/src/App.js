@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import Greeting from './components/Greeting'
+// import Greeting from './components/Greeting'
+import ActionBox from './components/ActionBox'
 
 class App extends React.Component {
   // state = {}
@@ -19,7 +20,7 @@ class App extends React.Component {
   render() {
     console.log("App :: render()")
     let { title, trainer } = this.props; // de-structuring
-    let { message } = this.state;
+    // let { message } = this.state;
     // this.props.title = "new-title" // illegal, becoz by default all props are immutable
     return (
       <div className="container">
@@ -28,15 +29,35 @@ class App extends React.Component {
           <span className="badge badge-dark">{trainer}</span>
         </h1>
         <hr />
+
+        {/*-----------------------------------------------------------------------------------------------------------*/}
+        {/* 
         <button onClick={e => this.changeMesage('good morning')} className="btn btn-sm btn-dark">GM</button>&nbsp;
         <button onClick={e => this.changeMesage('good noon')} className="btn btn-sm btn-dark">GN</button>&nbsp;
         <button onClick={e => this.changeMesage('good evening')} className="btn btn-sm btn-dark">GE</button>&nbsp;
+        <button onClick={e => this.changeMesage('')} className="btn btn-sm btn-danger">Remove</button>&nbsp;
         <hr />
-        <Greeting message={message} />
+        {message ? <Greeting message={message} /> : null} 
+        */}
+        {/*-----------------------------------------------------------------------------------------------------------*/}
+
+        <ActionBox />
 
       </div>
     )
   }
+
+  componentDidMount() {
+    console.log("App :: componentDidMount()")
+    // setTimeout(() => {
+    //   let response = "hello react!, hope r rocking"
+    //   this.setState({ message: response })
+    // }, 3000)
+  }
+  componentDidUpdate() {
+    console.log("App :: componentDidUpdate‰()")
+  }
+
 }
 
 App.defaultProps = {

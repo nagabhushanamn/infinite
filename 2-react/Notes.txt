@@ -48,3 +48,79 @@ react topics
 ----------------------------------------   
 
 ==> mutable data on component itself
+
+
+
+----------------------------------------
+- life-cycle methods
+----------------------------------------
+
+    - mounting
+        -> constructor()
+        -> render()
+        -> componentDidMount()
+    - updating
+        - shouldComponentUpdate()
+        - render()
+        - componentDidUpdate()
+    - unmounting
+        - componenWillUnmount()
+
+---------------------------------------
+
+imp-note : 
+
+by defaylt, react components will re-render on 3 conditions
+
+    -> setState()
+    -> newProps
+    -> forceUpdate()
+
+-------------------------------------------    
+- inter component communication
+-------------------------------------------
+
+e.g 
+
+    --------------------------
+    | -----------   ----------
+    | | Hit - 4  |  | kick - 6
+    | -----------   -----------
+    | -------------------------
+    | |Total Actions : 10      
+    | -------------------------
+    |--------------------------
+       
+
+  https://reactjs.org/docs/thinking-in-react.html
+
+  Start With A Mock
+  
+  Step 1: Break The UI Into A Component Hierarchy
+
+        - ActionBox
+            -Action(s)
+            -Summary
+
+  step-2: Build A Static Version in React     
+
+  Step 3: Identify The Minimal (but complete) Representation Of UI State/ui-data/model
+
+        - each action count
+        - total action count
+
+  Step 4: Identify Where Your State Should Live
+
+        - each action count
+
+            => Action
+
+        - total action count
+
+            => ActionBox 
+
+  Step 5: Add Inverse Data Flow          
+
+
+    
+    
