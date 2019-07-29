@@ -1,0 +1,11 @@
+
+
+dev web server
+----------------------
+> npm i -g live-server
+
+on project directory
+
+> live-server 
+// or
+> live-server --port=8181 

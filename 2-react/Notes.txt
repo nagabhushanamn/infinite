@@ -1,0 +1,50 @@
+
+react.js envi setup
+------------------
+
+> node -v
+> npm -v
+> npm i -g yarn   ( optional )
+> npm i -g create-react-app
+
+on workspace
+
+> create-react-app <app-name>
+> cd app-name
+
+> npm start or yarn start
+
+----------------------------------------
+
+==> global location where npm keeps global packages/tools 
+
+> npm get prefix   
+<path>
+> set path=%PATH%;<path>
+e.g
+> create-react-app <app-name> 
+
+----------------------------------------
+
+-----------------
+react topics
+-----------------
+
+    - props & state
+    - life-cycle methods
+    - inter component communication
+    - context
+    - container components / Higher-Order-components
+
+----------------------------------------   
+// props 
+----------------------------------------   
+
+==> immutable data from parent-component to chi
+
+
+----------------------------------------   
+// state 
+----------------------------------------   
+
+==> mutable data on component itself

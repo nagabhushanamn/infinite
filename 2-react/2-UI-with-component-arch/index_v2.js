@@ -28,7 +28,11 @@ function ReactClock(props) {
 }
 
 setInterval(() => {
-    ReactDOM.render(ReactClock({ timeZone: 'Asia/Kolkata' }), asiaKolkataV2)
-    ReactDOM.render(ReactClock({ timeZone: 'Asia/Dubai' }), asiaDubaiV2)
-    ReactDOM.render(ReactClock({ timeZone: 'America/New_york' }), americaNewyorkV2)
+    // ReactDOM.render(ReactClock({ timeZone: 'Asia/Kolkata' }), asiaKolkataV2)
+    // ReactDOM.render(ReactClock({ timeZone: 'Asia/Dubai' }), asiaDubaiV2)
+    // ReactDOM.render(ReactClock({ timeZone: 'America/New_york' }), americaNewyorkV2)
+    // or
+    ReactDOM.render(<ReactClock timeZone="Asia/Kolkata" />, asiaKolkataV2)
+    ReactDOM.render(<ReactClock timeZone="Asia/Dubai" />, asiaDubaiV2)
+    ReactDOM.render(<ReactClock timeZone="America/New_york" />, americaNewyorkV2)
 }, 1000)
