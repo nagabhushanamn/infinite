@@ -80,6 +80,12 @@ by defaylt, react components will re-render on 3 conditions
 - inter component communication
 -------------------------------------------
 
+
+  parent - child  ==> props
+  child  - parent ==> event
+
+
+
 e.g 
 
     --------------------------
