@@ -13,10 +13,11 @@ class ReviewForm extends Component {
     }
     handleForm(e) {
         e.preventDefault();
+        let { author,stars,body } = this.state;
         let data = {
-            author: this.refs.author.value,
-            stars: this.refs.stars.value,
-            body: this.refs.body.value
+            author
+            stars
+            body
         }
         let { onSubmit } = this.props;
         if (onSubmit) {
