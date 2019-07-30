@@ -3,9 +3,6 @@ import React, { Component } from 'react';
 class ReviewForm extends Component {
     state = {
         isOpen: false,
-        author: 'Nag@mail.com',
-        stars: 5,
-        body: ''
     }
     toggleForm() {
         let { isOpen } = this.state;
@@ -13,11 +10,10 @@ class ReviewForm extends Component {
     }
     handleForm(e) {
         e.preventDefault();
-        let { author,stars,body } = this.state;
         let data = {
-            author,
-            stars,
-            body,
+            author: this.refs.author.value,
+            stars: this.refs.stars.value,
+            body: this.refs.body.value
         }
         let { onSubmit } = this.props;
         if (onSubmit) {
@@ -25,13 +21,8 @@ class ReviewForm extends Component {
             this.toggleForm();
         }
     }
-    handleChange(e) {
-        let field = e.target.id;
-        let fieldValue = e.target.value;
-        this.setState({[field]:fieldValue})
-    }
     renderForm() {
-        let { isOpen,author,stars,body } = this.state;
+        let { isOpen } = this.state;
         if (!isOpen) return (
             <button onClick={e => this.toggleForm()} className="btn btn-sm btn-dark"><i className="fa fa-plus"></i></button>
         )
@@ -42,18 +33,17 @@ class ReviewForm extends Component {
                     <form onSubmit={e => this.handleForm(e)}>
                         <div className="form-group">
                             <label>author</label>
-                            <input className="form-control" id="author" value={author} onChange={e => this.handleChange(e)} />
+                            <input className="form-control" ref="author" />
                         </div>
                         <div className="form-group">
                             <label>stars</label>
-                            <select className="form-control" id="stars" value={stars} onChange={e => this.handleChange(e)}>
+                            <select className="form-control" ref="stars">
                                 {[1, 2, 3, 4, 5].map(n => <option key={n}>{n}</option>)}
                             </select>
-                            <span className="text-danger">{stars<3?'expected atleast 3 stars':''}</span>
                         </div>
                         <div className="form-group">
                             <label>body</label>
-                            <textarea className="form-control" id="body" value={body} onChange={e => this.handleChange(e)}></textarea>
+                            <textarea className="form-control" ref="body"></textarea>
                         </div>
                         <button className="btn btn-sm btn-dark">submit</button>
                         &nbsp;
