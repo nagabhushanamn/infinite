@@ -15,9 +15,10 @@ class ItemList extends Component {
         //     let items = store.getState().items;
         //     this.setState({ items })
         // })
-        // setTimeout(() => {
+        // let action = loadItems()
+        // store.dispatch(action)
+        // -or- 
         this.props.loadItems();
-        // }, 0);
     }
     // componentWillUnmount() {
     //     this.unsubscribe();
@@ -62,4 +63,5 @@ function mapStateToProps(state) {
     }
 }
 const mapDispathToProps = { loadItems }
+
 export default connect(mapStateToProps, mapDispathToProps)(ItemList)

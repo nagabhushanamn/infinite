@@ -24,3 +24,11 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(CartBadge);
+
+/**
+ * 
+ * <Connect(CartBadge)>
+ *  <CartBadge cart={state.cart}/>
+ * </Connect(CartBadge)>
+ * 
+ */
