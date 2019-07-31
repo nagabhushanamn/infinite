@@ -31,6 +31,77 @@ How single-thread process is more concurrent ?
 
  
 
+----------------------------------------
+
+
+web appln ,
+
+at server-side we should have,
+
+  - by URL
+  - by http method
+  - by http req params & headers
+  ...
+
+
+  limtations with Node.js core apis
+  ---------------------------------
+
+  ==> low level apis
+  ==> should write too much code even for simple appln
+  ==> often appln ends with design & performance issues
+
+soln:
+
+  ==> using third-party's lib & Frameworks
+
+  e.g 
+
+    ==> express.js  from strongloop
+
+  --------------------------------------
+
+
+  REST API
+  ----------
+
+1. Identification of resources ( with URI )
+
+   item , review , order , user
+
+   /items
+   /items/{itemId}/reviews
+   /users
+   /users/{userId}/orders
+   /users/{userId}/orders/{orderId}
+
+2. Manipulation of resources through these representations
+
+  text/html
+  application/xml
+  application/json
+  application/pdf
+  application/excel
+
+3. Self-descriptive messages
+
+request
+
+  Accept : application/json
+  ..
+
+response
+
+  Content-Type : application
+
+4. Hypermedia As The Engine Of Application State (HATEOAS)
+
+
+HypherMedia + Links
+
+--------------------------------------------------
+
+
 
 
 

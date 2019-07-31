@@ -16,7 +16,7 @@ class Item extends Component {
         this.setState({ currentTab: tabIndex }, () => {
             if (tabIndex === 3) {
                 let { value: item, loadReviews } = this.props;
-                let { id } = item;
+                let { _id: id } = item;
                 loadReviews(id)
             }
         })// async
